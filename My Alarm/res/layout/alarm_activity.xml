@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app" >
+
+    <LinearLayout
+        android:id="@+id/alarm_activity_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="a1531041b3c3f04" />
+
+        <LinearLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textView_title_bar"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:text="@string/app_name"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/primary_text_dark"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/okCancel_border_top"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/holo_blue_light" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:longClickable="true" >
+        </ListView>
+
+        <!-- <com.fortysevendeg.swipelistview.SwipeListView -->
+        <!-- xmlns:swipe="http://schemas.android.com/apk/res-auto" -->
+        <!-- android:id="@android:id/list" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="0dp" -->
+        <!-- android:layout_weight="1" -->
+        <!-- android:listSelector="#00000000" -->
+        <!-- android:padding="10dp" -->
+        <!-- swipe:swipeActionLeft="reveal" -->
+        <!-- swipe:swipeAnimationTime="0" -->
+        <!-- swipe:swipeBackView="@+id/mynotification_back" -->
+        <!-- swipe:swipeCloseAllItemsWhenMoveList="true" -->
+        <!-- swipe:swipeFrontView="@+id/mynotification_front" -->
+        <!-- swipe:swipeMode="left" -->
+        <!-- swipe:swipeOpenOnLongPress="true" /> -->
+
+        <TextView
+            android:id="@+id/alarm_activity_tv_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/no_alarms"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/button_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_submit"
+            android:contentDescription="@string/button_new"
+            android:src="@drawable/ic_add_new" />
+    </LinearLayout>
+
+</RelativeLayout>

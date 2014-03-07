@@ -1,0 +1,10 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- pressed -->
+    <item android:drawable="@drawable/bg_btn_delete_fc" android:state_pressed="true"/>
+    <!-- focused -->
+    <item android:drawable="@drawable/bg_btn_delete_fc" android:state_focused="true"/>
+    <!-- default -->
+    <item android:drawable="@drawable/bg_btn_delete"/>
+
+</selector>
