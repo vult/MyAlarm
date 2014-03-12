@@ -2,6 +2,8 @@ package vult.studio.myalarm.activity;
 
 import vult.studio.myalarm.R;
 import vult.studio.myalarm.adapter.AlarmListAdapter;
+import vult.studio.myalarm.alert.DialogConfirm;
+import vult.studio.myalarm.alert.DialogConfirm.ProcessDialogConfirm;
 import vult.studio.myalarm.database.Database;
 import vult.studio.myalarm.entity.Alarm;
 import vult.studio.myalarm.service.AlarmServiceBroadcastReciever;
@@ -12,6 +14,7 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -214,7 +217,24 @@ public class AlarmActivity extends Activity implements
 				switch (event.getAction()) {
 				case KeyEvent.ACTION_DOWN:
 					if (event.getDownTime() - lastPressedTime < PERIOD) {
-						finish();
+						DialogConfirm dialog = new DialogConfirm(this,
+								android.R.drawable.ic_dialog_alert, "Logout",
+								"Are you sure you want to exit ?", true,
+								new ProcessDialogConfirm() {
+
+									@Override
+									public void click_Ok() {
+										finish();
+									}
+
+									@Override
+									public void click_Cancel() {
+										startActivity(new Intent(
+												Intent.ACTION_VIEW,
+												Uri.parse("market://details?id=vult.studio.myalarm")));
+									}
+								});
+						dialog.show();
 					} else {
 						Toast.makeText(AlarmActivity.this,
 								"Press again to exist.", Toast.LENGTH_SHORT)
